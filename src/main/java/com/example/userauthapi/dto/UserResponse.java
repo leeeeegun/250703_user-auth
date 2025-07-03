@@ -15,4 +15,3 @@ public class UserResponse {
         this.username = user.getUsername();
     }
 }
-    
