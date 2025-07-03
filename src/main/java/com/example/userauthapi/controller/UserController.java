@@ -1,0 +1,31 @@
+package com.example.userauthapi.controller;
+
+import com.example.userauthapi.entity.User;
+import com.example.userauthapi.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    private final UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    // 이메일로 유저 조회
+    @GetMapping("/email")
+    public User getUserByEmail(@RequestParam String email) {
+        return userService.getUserByEmail(email);
+    }
+
+    // 유저네임으로 유저 조회
+    @GetMapping("/username")
+    public User getUserByUsername(@RequestParam String username) {
+        return userService.getUserByUsername(username);
+    }
+
+}
