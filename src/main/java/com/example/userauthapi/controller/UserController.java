@@ -28,4 +28,9 @@ public class UserController {
         return userService.getUserByUsername(username);
     }
 
+    // 회원 가입 (User 등록)
+    @PostMapping("/signup")
+    public User signup(@RequestBody User user) {
+        return userService.createUser(user);
+    }
 }
